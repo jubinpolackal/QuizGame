@@ -55,10 +55,14 @@ class HomePageViewController: UIViewController {
     }
     
     @objc fileprivate func syncFailed(){
+        self.messageLabel.isHidden = false
+        self.listTableView.isHidden = true
         self.messageLabel.text = "Failed download. Please try again later"
     }
     
     @objc fileprivate func syncCompleted(){
+        self.messageLabel.isHidden = true
+        self.listTableView.isHidden = false
         self.listTableView.reloadData()
     }
 }
