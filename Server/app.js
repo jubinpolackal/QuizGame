@@ -10,10 +10,10 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 
-// Angular DIST output folder
+// Path to content json file
 app.use(express.static(path.join(__dirname, 'dist')));
 
-// Send all other requests to the Angular app
+// Send all other requests to the app
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'Content/content.json'));
 });
@@ -21,8 +21,6 @@ app.get('*', (req, res) => {
 //Set Port
 const port = process.env.PORT || '3000';
 app.set('port', port);
-
-
 
 const server = http.createServer(app);
 
