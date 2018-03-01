@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D47" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Answers" representedClassName="Answers" syncable="YES">
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="quizItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QuizItem" inverseName="answerOptions" inverseEntity="QuizItem" syncable="YES"/>
+    </entity>
+    <entity name="QuizItem" representedClassName="QuizItem" syncable="YES">
+        <attribute name="correctAnswerIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="section" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="selectedIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="standFirst" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="storyURL" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="answerOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Answers" inverseName="quizItem" inverseEntity="Answers" syncable="YES"/>
+        <relationship name="quiz" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QuizMaster" inverseName="quizes" inverseEntity="QuizMaster" syncable="YES"/>
+    </entity>
+    <entity name="QuizMaster" representedClassName="QuizMaster" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isCompleted" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pointsAcquired" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="version" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="quizes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QuizItem" inverseName="quiz" inverseEntity="QuizItem" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="QuizMaster" positionX="-63" positionY="-234" width="128" height="135"/>
+        <element name="QuizItem" positionX="250" positionY="-306" width="128" height="165"/>
+        <element name="Answers" positionX="81" positionY="18" width="128" height="73"/>
+    </elements>
+</model>
